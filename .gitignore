@@ -2,6 +2,9 @@
 # s: set gitignore for go lang
 # refer: https://github.com/github/gitignore/blob/main/Go.gitignore
 
+# get go allow list
+# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+
 # ignore binaries for programs and plugins
 *.exe
 *.exe~
