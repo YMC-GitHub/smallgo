@@ -200,10 +200,27 @@ git config --global --unset url."https://ghproxy.com/https://github.com".instead
 - [x] add docs about using git for this repo i noted
 ```bash
 git add README.04-GIT.md ; git commit -m "docs(core): add readme to note git for this repo";
+git add README.04-GIT.md ; git commit -m "docs(core): put readme to note git for this repo";
+
 ```
 
 
 - [x] add docs about using ssh in github i noted
 ```bash
 git add README.05-SSH.md ; git commit -m "docs(core): add readme to note ssh";
+```
+
+- [x] set pull action for this repo
+```bash
+# zero:knowledge:s:pull-action
+# you must know .
+# git config pull.rebase false  # merge
+git config pull.rebase true   # rebase
+# git config pull.ff only       # fast-forward only
+# zero:knowledge:e:pull-action
+```
+
+- [x] pull remote github repo before pushing again
+```bash
+git pull github main
 ```
