@@ -227,5 +227,6 @@ git config pull.rebase true   # rebase
 
 - [x] pull remote github repo before pushing again
 ```bash
-git pull github main
+git pull origin main
+# git pull github main
 ```
