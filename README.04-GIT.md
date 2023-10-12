@@ -230,3 +230,8 @@ git config pull.rebase true   # rebase
 git pull origin main
 # git pull github main
 ```
+
+- [x] push remote github repo (no the first time)
+```bash
+git push -u origin main
+```
