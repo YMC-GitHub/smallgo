@@ -1,0 +1,760 @@
+{
+	// Place your smallgo.zero.com workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"pkg_belong": {
+		"scope": "go",
+		"prefix": "pkg_belong",
+		"body": [
+			"package ${1:main}",
+		],
+		"description": "pkg belong"
+	},
+	"pkg import": {
+		"prefix": "pkg_import",
+		"body": [
+		  "import \"${1:example}\""
+		],
+		"description": "pkg import"
+	},
+	"pkg import as alias name": {
+		"prefix": "pkg_import_as_alias",
+		"body": [
+		  "import e \"${1:example}\""
+		],
+		"description": "pkg import as alias name"
+	},
+	"pkg import many": {
+		"prefix": "pkg_import_many",
+		"body": [
+		  "import (\"${1:fmt}\",\"${1:math}\")"
+		],
+		"description": "pkg import many"
+	},
+	"pkg export func": {
+		"prefix": "pkg_export_func",
+		"body": [
+		  "func ${1:SayHello}() {",
+		  "   fmt.Println(\"Hello\")",
+		  "}"
+		],
+		"description": "pkg export func"
+	},
+	"literals_int_10k": {
+		"prefix": "literals_int_10k",
+		"body": [
+		  "10_000"
+		],
+		"description": "literals_int_10k"
+	},
+	"const_str_declare": {
+		"prefix": "const_str_declare",
+		"body": [
+		  "const ${1:msg} = \"${2:zero}\""
+		],
+		"description": "const_str_declare"
+	},
+	"const_str_declare_many": {
+		"prefix": "const_str_declare_many",
+		"body": [
+		  "const (",
+		  "   Age = 18",
+		  "   Name  = \"Zero\"",
+		  ")",
+		  ""
+		],
+		"description": "const_str_declare_many"
+	},
+	"var_str_declare_one": {
+		"prefix": "var_str_declare_one",
+		"body": [
+		  "var ${1:s} string"
+		],
+		"description": "var_str_declare_one"
+	},
+	"var_str_declare_many": {
+		"prefix": "var_str_declare_many",
+		"body": [
+		  "var a, b,c  string"
+		],
+		"description": "var_str_declare_many"
+	},
+	"var_str_declare_one_short": {
+		"prefix": "var_str_declare_one_short",
+		"body": [
+		  "${1:name} := \"${2:zero}\" "
+		],
+		"description": "var_str_declare_one_short"
+	},
+	"var_int_declare_one": {
+		"prefix": "var_int_declare_one",
+		"body": [
+		  "var ${1:i} int"
+		],
+		"description": "var_int_declare_one"
+	},
+	"var_byte_declare_one": {
+		"prefix": "var_byte_declare_one",
+		"body": [
+		  "var ${1:b} byte"
+		],
+		"description": "var_byte_declare_one"
+	},
+	"var_mix_declare_many": {
+		"prefix": "var_mix_declare_many",
+		"body": [
+		  "var (",
+		  "	name    string",
+		  "	age     int",
+		  "	address string",
+		  ")",
+		  ""
+		],
+		"description": "var_mix_declare_many"
+	},
+	"var_mix_declare_many_short": {
+		"prefix": "var_mix_declare_many_short",
+		"body": [
+		  "name, age := \"zero\", 1"
+		],
+		"description": "var_mix_declare_many_short"
+	},
+	"var_swap_two": {
+		"prefix": "var_swap_two",
+		"body": [
+		  "a,b = b,a"
+		],
+		"description": "var_swap_two"
+	},
+	"inout_std": {
+		"prefix": "inout_std",
+		"body": [
+		  "var (",
+		  "   Stdin  = NewFile(uintptr(syscall.Stdin), \"/dev/stdin\")",
+		  "   Stdout = NewFile(uintptr(syscall.Stdout), \"/dev/stdout\")",
+		  "   Stderr = NewFile(uintptr(syscall.Stderr), \"/dev/stderr\")",
+		  ")"
+		],
+		"description": "inout_std"
+	},
+	"inout_out_os": {
+		"prefix": "inout_out_os",
+		"body": [
+		  "os.Stdout.WriteString(\"Hello Zero!\")"
+		],
+		"description": "inout_out_os"
+	},
+	"inout_out_println": {
+		"prefix": "inout_out_println",
+		"body": [
+		  "println(\"Hello Zero!\")"
+		],
+		"description": "inout_out_println"
+	},
+	"inout_out_fmt_println": {
+		"prefix": "inout_out_fmt_println",
+		"body": [
+		  "fmt.Println(\"Hello Zero!\")"
+		],
+		"description": "inout_out_fmt_println"
+	},
+	"inout_in_bufio": {
+		"prefix": "inout_in_bufio",
+		"body": [
+		  "func main() {",
+		  "   // read",
+		  "   scanner := bufio.NewScanner(os.Stdin)",
+		  "   scanner.Scan()",
+		  "   fmt.Println(scanner.Text())",
+		  "}"
+		],
+		"description": "inout_in_bufio"
+	},
+	"inout_out_bufio": {
+		"prefix": "inout_out_bufio",
+		"body": [
+		  "func main() {",
+		  "   // write",
+		  "   writer := bufio.NewWriter(os.Stdout)",
+		  "   writer.WriteString(\"hello world!\\n\")",
+		  "   writer.Flush()",
+		  "   fmt.Println(writer.Buffered())",
+		  "}"
+		],
+		"description": "inout_out_bufio"
+	},
+	"condition_if_a": {
+		"prefix": "condition_if_a",
+		"body": [
+		  "if ${1:a} {",
+		  "}"
+		],
+		"description": "condition_if_a"
+	},
+	"condition_if_a_esle": {
+		"prefix": "condition_if_a_esle",
+		"body": [
+		  "if ${1:a} {",
+		  "}else{",
+		  "}"
+		],
+		"description": "condition_if_a_esle"
+	},
+	"condition_if_a_esleif": {
+		"prefix": "condition_if_a_esleif",
+		"body": [
+		  "if ${1:a} {",
+		  "}else if ${2:b}{",
+		  "}else{",
+		  "}"
+		],
+		"description": "condition_if_a_esleif"
+	},
+	"condition_switch": {
+		"prefix": "condition_switch",
+		"body": [
+		  "switch ${1:a}{",
+		  "	case \"a\":",
+		  "	case \"b\":",
+		  "	default:",
+		  "}"
+		],
+		"description": "condition_switch"
+	},
+	"loop_for": {
+		"prefix": "loop_for",
+		"body": [
+		  "for i := 0; i <= 20; i++ {",
+		  "    fmt.Println(i)",
+		  "}"
+		],
+		"description": "loop_for"
+	},
+	"loop_for_range": {
+		"prefix": "loop_for_range",
+		"body": [
+		  "${1:a}:= \"hello world\"",
+		  "for index, value := range ${1:a}{",
+		  "    fmt.Println(index, value)",
+		  "}"
+		],
+		"description": "loop_for_range"
+	},
+	"arr_num_define": {
+		"prefix": "arr_num_define",
+		"body": [
+		  "var ${1:nums} [5]int"
+		],
+		"description": "arr_num_define"
+	},
+	"arr_num_define_short": {
+		"prefix": "arr_num_define_short",
+		"body": [
+		  "${1:nums} := [5]int{1, 2, 3}"
+		],
+		"description": "arr_num_define_short"
+	},
+	"arr_num_define_short_point": {
+		"prefix": "arr_num_define_short_point",
+		"body": [
+		  "${1:nums}:= new([5]int)"
+		],
+		"description": "arr_num_define_short_point"
+	},
+	"arr_num_get_val_by_key": {
+		"prefix": "arr_num_get_val_by_key",
+		"body": [
+		  "fmt.Println(${1:nums}[0])"
+		],
+		"description": "arr_num_get_val_by_key"
+	},
+	"arr_num_set_val_by_key": {
+		"prefix": "arr_num_set_val_by_key",
+		"body": [
+		  "${1:nums}[0]=1"
+		],
+		"description": "arr_num_set_val_by_key"
+	},
+	"arr_num_slice": {
+		"prefix": "arr_num_slice",
+		"body": [
+		  "${1:nums}[1:3]"
+		],
+		"description": "arr_num_slice"
+	},
+	"arr_num_define_nsl": {
+		"prefix": "arr_num_define_nsl",
+		"body": [
+		  "var ${1:nums} []int"
+		],
+		"description": "arr_num_define_nsl"
+	},
+	"arr_num_define_nsl_short": {
+		"prefix": "arr_num_define_nsl_short",
+		"body": [
+		  "${1:nums} := []int{1, 2, 3}"
+		],
+		"description": "arr_num_define_nsl_short"
+	},
+	"arr_num_define_nsl_short_make": {
+		"prefix": "arr_num_define_nsl_short_make",
+		"body": [
+		  "${1:nums} := make([]int, 0, 0)"
+		],
+		"description": "arr_num_define_nsl_short_make"
+	},
+	"arr_num_define_nsl_short_point": {
+		"prefix": "arr_num_define_nsl_short_point",
+		"body": [
+		  "${1:nums} := new([]int)"
+		],
+		"description": "arr_num_define_nsl_short_point"
+	},
+	"arr_nsl_add_head": {
+		"prefix": "arr_nsl_add_head",
+		"body": [
+		  "nums = append([]int{-1, 0}, nums...)"
+		],
+		"description": "arr_nsl_add_head"
+	},
+	"arr_nsl_add_mid": {
+		"prefix": "arr_nsl_add_mid",
+		"body": [
+		  "nums = append(nums[:i+1], append([]int{999, 999}, nums[i+1:]...)...)"
+		],
+		"description": "arr_nsl_add_mid"
+	},
+	"arr_nsl_add_tail": {
+		"prefix": "arr_nsl_add_tail",
+		"body": [
+		  "nums = append(nums, 99, 100)"
+		],
+		"description": "arr_nsl_add_tail"
+	},
+	"arr_nsl_del_head": {
+		"prefix": "arr_nsl_del_head",
+		"body": [
+		  "nums = nums[n:]"
+		],
+		"description": "arr_nsl_del_head"
+	},
+	"arr_nsl_del_mid": {
+		"prefix": "arr_nsl_del_mid",
+		"body": [
+		  "nums = append(nums[:i], nums[i+n:]...)"
+		],
+		"description": "arr_nsl_del_mid"
+	},
+	"arr_nsl_del_tail": {
+		"prefix": "arr_nsl_del_tail",
+		"body": [
+		  "nums = nums[:len(nums)-n]"
+		],
+		"description": "arr_nsl_del_tail"
+	},
+	"str_plain": {
+		"prefix": "str_plain",
+		"body": [
+		  "\"abcdefghijlmn\\nopqrst\\t\\\\uvwxyz\""
+		],
+		"description": "str_plain"
+	},
+	"str_native": {
+		"prefix": "str_native",
+		"body": [
+		  "`",
+		  "i amd ",
+		  "zero",
+		  "`"
+		],
+		"description": "str_native"
+	},
+	"str_get_by_index": {
+		"prefix": "str_get_by_index",
+		"body": [
+		  "string(str[0])"
+		],
+		"description": "str_get_by_index"
+	},
+	"str_to_arr_nsl_byte": {
+		"prefix": "str_to_arr_nsl_byte",
+		"body": [
+		  "bytes := []byte(str)"
+		],
+		"description": "str_to_arr_nsl_byte"
+	},
+	"str_from_arr_nsl_byte": {
+		"prefix": "str_from_arr_nsl_byte",
+		"body": [
+		  "str = string(bytes)"
+		],
+		"description": "str_from_arr_nsl_byte"
+	},
+	"str_get_length": {
+		"prefix": "str_get_length",
+		"body": [
+		  "len(str)"
+		],
+		"description": "str_get_length"
+	},
+	"str_copy": {
+		"prefix": "str_copy",
+		"body": [
+		  "dst = strings.Clone(src)"
+		],
+		"description": "str_copy"
+	},
+	"str_join_a": {
+		"prefix": "str_join_a",
+		"body": [
+		  "str = str + \" that is a int\""
+		],
+		"description": "str_join_a"
+	},
+	"str_join_b": {
+		"prefix": "str_join_b",
+		"body": [
+		  "str := \"this is a string\"",
+		  "bytes := []byte(str)",
+		  "bytes = append(bytes, \"that is a int\"...)",
+		  "str = string(bytes)"
+		],
+		"description": "str_join_b"
+	},
+	"str_join_perf": {
+		"prefix": "str_join_perf",
+		"body": [
+		  "builder := strings.Builder{}",
+		  "builder.WriteString(\"this is a string \")",
+		  "builder.WriteString(\"that is a int\")",
+		  "fmt.Println(builder.String())"
+		],
+		"description": "str_join_perf"
+	},
+	"map_define_ki_vs": {
+		"prefix": "map_define_ki_vs",
+		"body": [
+		  "mp := map[int]string{",
+		  "   0: \"a\",",
+		  "   1: \"a\",",
+		  "}",
+		  ""
+		],
+		"description": "map_define_ki_vs"
+	},
+	"map_define_ks_vi": {
+		"prefix": "map_define_ks_vi",
+		"body": [
+		  "mp := map[string]int{",
+		  "   \"a\": 0,",
+		  "   \"b\": 22,",
+		  "}"
+		],
+		"description": "map_define_ks_vi"
+	},
+	"map_define_ks_vi_make": {
+		"prefix": "map_define_ks_vi_make",
+		"body": [
+		  "mp := make(map[string]int, 8)"
+		],
+		"description": "map_define_ks_vi_make"
+	},
+	"map_define_ki_vs_make": {
+		"prefix": "map_define_ki_vs_make",
+		"body": [
+		  "mp := make(map[string][]int, 10)"
+		],
+		"description": "map_define_ki_vs_make"
+	},
+	"map_get_val_by_key": {
+		"prefix": "map_get_val_by_key",
+		"body": [
+		  "fmt.Println(mp[\"a\"])"
+		],
+		"description": "map_get_val_by_key"
+	},
+	"map_del_val_by_key": {
+		"prefix": "map_del_val_by_key",
+		"body": [
+		  "delete(mp, \"a\")"
+		],
+		"description": "map_del_val_by_key"
+	},
+	"map_check_val_by_key": {
+		"prefix": "map_check_val_by_key",
+		"body": [
+		  "   if val, exist := mp[\"f\"]; exist {",
+		  "      fmt.Println(val)",
+		  "   } else {",
+		  "      fmt.Println(\"key不存在\")",
+		  "   }"
+		],
+		"description": "map_check_val_by_key"
+	},
+	"map_get_length": {
+		"prefix": "map_get_length",
+		"body": [
+		  "fmt.Println(len(mp))"
+		],
+		"description": "map_get_length"
+	},
+	"map_loop": {
+		"prefix": "map_loop",
+		"body": [
+		  "   for key, val := range mp {",
+		  "      fmt.Println(key, val)",
+		  "   }"
+		],
+		"description": "map_loop"
+	},
+	"map_clear": {
+		"prefix": "map_clear",
+		"body": [
+		  "clear(m)"
+		],
+		"description": "map_clear"
+	},
+	"map_clear_before_112": {
+		"prefix": "map_clear_before_112",
+		"body": [
+		  "for k, _ := range m {",
+		  "    delete(m, k)",
+		  "}"
+		],
+		"description": "map_clear_before_112"
+	},
+	"set_def": {
+		"prefix": "set_def",
+		"body": [
+		  "set := make(map[int]struct{}, 10)"
+		],
+		"description": "set_def"
+	},
+	"pointer_address_fetch": {
+		"prefix": "pointer_address_fetch",
+		"body": [
+		  "p := &num"
+		],
+		"description": "pointer_address_fetch"
+	},
+	"pointer_un_address_fetch": {
+		"prefix": "pointer_un_address_fetch",
+		"body": [
+		  "rawNum := *p"
+		],
+		"description": "pointer_un_address_fetch"
+	},
+	"struct_define_person": {
+		"prefix": "struct_define_person",
+		"body": [
+		  "type Person struct {",
+		  "   name string",
+		  "   age int",
+		  "}",
+		  ""
+		],
+		"description": "struct_define_person"
+	},
+	"struct_create_instance": {
+		"prefix": "struct_create_instance",
+		"body": [
+		  "programmer := Person{",
+		  "   Name:     \"jack\",",
+		  "   Age:      19",
+		  "}"
+		],
+		"description": "struct_create_instance"
+	},
+	"struct_define_combine": {
+		"prefix": "struct_define_combine",
+		"body": [
+		  "type Student struct {",
+		  "   p      Person",
+		  "   school string",
+		  "}",
+		  ""
+		],
+		"description": "struct_define_combine"
+	},
+	"struct_define_empty": {
+		"prefix": "struct_define_empty",
+		"body": [
+		  "type Empty struct {",
+		  "}"
+		],
+		"description": "struct_define_empty"
+	},
+	"struct_get_memory_size": {
+		"prefix": "struct_get_memory_size",
+		"body": [
+		  "unsafe.Sizeof(Empty{}"
+		],
+		"description": "struct_get_memory_size"
+	},
+	"func_define_a": {
+		"prefix": "func_define_a",
+		"body": [
+		  "func DoSth() {",
+		  "}"
+		],
+		"description": "func_define_a"
+	},
+	"func_define_b": {
+		"prefix": "func_define_b",
+		"body": [
+		  "var DoNothing func()"
+		],
+		"description": "func_define_b"
+	},
+	"func_define_c": {
+		"prefix": "func_define_c",
+		"body": [
+		  "type DoAnything func(){}"
+		],
+		"description": "func_define_c"
+	},
+	"func_define_a_sum": {
+		"prefix": "func_define_a_sum",
+		"body": [
+		  "func Sum(a, b int) int {",
+		  "   return a + b",
+		  "}"
+		],
+		"description": "func_define_a_sum"
+	},
+	"func_define_b_sum": {
+		"prefix": "func_define_b_sum",
+		"body": [
+		  "var sum func(int,int) int",
+		  "",
+		  "sum = func(a int, b int) int {",
+		  "   return a + b",
+		  "}"
+		],
+		"description": "func_define_b_sum"
+	},
+	"func_define_no_name": {
+		"prefix": "func_define_no_name",
+		"body": [
+		  "func main() {",
+		  "	DoSum(1, 2, func(a int, b int) int {",
+		  "		return a + b",
+		  "	})",
+		  "}",
+		  "func DoSum(a, b int, f func(int, int) int) int {",
+		  "	return f(a, b)",
+		  "}"
+		],
+		"description": "func_define_no_name"
+	},
+	"func_define_closure": {
+		"prefix": "func_define_closure",
+		"body": [
+		  "func Sum(a, b int) func(int, int) int {",
+		  "	return func(int, int) int {",
+		  "		return a + b",
+		  "	}",
+		  "}"
+		],
+		"description": "func_define_closure"
+	},
+	"func_define_no_name_defer": {
+		"prefix": "func_define_no_name_defer",
+		"body": [
+		  "defer func() {",
+		  "   fmt.Println(\"1\")",
+		  "}()"
+		],
+		"description": "func_define_no_name_defer"
+	},
+	"method_define": {
+		"prefix": "method_define",
+		"body": [
+		  "type IntSlice []int",
+		  "",
+		  "func (i IntSlice) Get(index int) int {",
+		  "	return i[index]",
+		  "}",
+		  "func (i IntSlice) Set(index, val int) {",
+		  "	i[index] = val",
+		  "}",
+		  "",
+		  "func (i IntSlice) Len() int {",
+		  "	return len(i)",
+		  "}"
+		],
+		"description": "method_define"
+	},
+	"method_use": {
+		"prefix": "method_use",
+		"body": [
+		  "func main() {",
+		  "   var intSlice IntSlice",
+		  "   intSlice = []int{1, 2, 3, 4, 5}",
+		  "   fmt.Println(intSlice.Get(0))",
+		  "   intSlice.Set(0, 2)",
+		  "   fmt.Println(intSlice)",
+		  "   fmt.Println(intSlice.Len())",
+		  "}"
+		],
+		"description": "method_use"
+	},
+	"interface_define_any": {
+		"prefix": "interface_define_any",
+		"body": [
+		  "type Any interface{",
+		  "",
+		  "}"
+		],
+		"description": "interface_define_any"
+	},
+	"interface_define_person": {
+		"prefix": "interface_define_person",
+		"body": [
+		  "type Person interface {",
+		  "	Say(string) string",
+		  "	Walk(int)",
+		  "}"
+		],
+		"description": "interface_define_person"
+	},
+	"interface_cometrue_person": {
+		"prefix": "interface_cometrue_person",
+		"body": [
+		  "type Func func()",
+		  "",
+		  "func (f Func) Say(s string) string {",
+		  "	f()",
+		  "	return \"bibibibibi\"",
+		  "}",
+		  "",
+		  "func (f Func) Walk(i int) {",
+		  "	f()",
+		  "	fmt.Println(\"can not walk\")",
+		  "}",
+		  ""
+		],
+		"description": "interface_cometrue_person"
+	},
+	"interface_create_instance": {
+		"prefix": "interface_create_instance",
+		"body": [
+		  "  var person Person",
+		  "  fmt.Println(person)"
+		],
+		"description": "interface_create_instance"
+	}
+}
