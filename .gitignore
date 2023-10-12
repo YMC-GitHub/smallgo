@@ -33,5 +33,5 @@ go.work
 secret
 
 # ignore project vscode editor config
-.vscode
+# .vscode
 # e: set gitignore for zero
