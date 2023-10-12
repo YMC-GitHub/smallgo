@@ -220,6 +220,11 @@ git config pull.rebase true   # rebase
 # zero:knowledge:e:pull-action
 ```
 
+- [x] keep workspace clean before pulling
+```bash
+# git stash
+```
+
 - [x] pull remote github repo before pushing again
 ```bash
 git pull github main
