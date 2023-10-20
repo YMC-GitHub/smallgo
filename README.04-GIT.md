@@ -109,6 +109,7 @@ git add .vscode/README.md;git commit -m "docs(core): put vscode editor config fi
 - [x] add docs about how to setup this
 ```bash
 git add README.01-SETUP.md ; git commit -m "docs(core): add readme to setup this";
+git add README.01-SETUP.md ; git commit -m "docs(core): put readme to setup this";
 ```
 
 - [x] add docs about how to code before coding
@@ -119,12 +120,14 @@ git add README.02-BEFORE-CODE.md ; git commit -m "docs(core): add readme to code
 - [x] add docs about some libs i noted
 ```bash
 git add README.03-LIB-NOTE.md ; git commit -m "docs(core): add readme to note libs";
+git add README.03-LIB-NOTE.md ; git commit -m "docs(core): put readme to note libs";
 ```
 
 - [x] add go code snippets in project level
 ```bash
 git add .vscode/.gitignore;git commit -m "build(core): add go code snippets in project level";
 git add .vscode/go.code-snippets;git commit -m "docs(core): add go code snippets";
+git add .vscode/go.code-snippets;git commit -m "build(core): put go code snippets to build for different os";
 ```
 
 - [x] add hello world in root dirs
@@ -135,6 +138,7 @@ git add main.go;git commit -m "build(core): add hello world in root dirs";
 - [x] add go mod and workspace
 ```bash
 git add go.mod go.sum go.work.sum;git commit -m "build(core): add mod and workspace";
+git add go.mod go.sum go.work.sum;git commit -m "build(core): put mod and workspace";
 ```
 
 - [x] add mod chapter01
@@ -234,4 +238,12 @@ git pull origin main
 - [x] push remote github repo (no the first time)
 ```bash
 git push -u origin main
+```
+
+- [x] add chapter02
+```bash
+git add src/chapter02/; git commit -m "docs(core): use fyne to make higo gui";
+git add src/chapter02/higo/readme.md; git commit -m "docs(core): use fyne to make higo gui";
+
+git add go.mod go.sum go.work.sum;git commit -m "build(core): put mod and workspace";
 ```
