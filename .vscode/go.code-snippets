@@ -756,5 +756,12 @@
 		  "  fmt.Println(person)"
 		],
 		"description": "interface_create_instance"
-	}
+	},
+    "node_build_for_os": {
+        "prefix": "node_build_for_os",
+        "body": [
+          "//go:build linux || darwin || windows"
+        ],
+        "description": "add these to some files head, to set this files only build for some os"
+      }
 }
