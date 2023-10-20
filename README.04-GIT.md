@@ -242,7 +242,7 @@ git push origin main
 
 - [x] add chapter02
 ```bash
-git add src/chapter02/; git commit -m "docs(core): use fyne to make higo gui";
+git add src/chapter02/higo/*.go; git commit -m "feat(core): use fyne to make higo gui";
 git add src/chapter02/higo/readme.md; git commit -m "docs(core): use fyne to make higo gui";
 
 git add go.mod go.sum go.work.sum;git commit -m "build(core): put mod and workspace";
