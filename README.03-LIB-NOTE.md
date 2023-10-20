@@ -26,6 +26,53 @@ blog:
 
 - [x] [robotgo](https://github.com/go-vgo/robotgo) -- Control the mouse, keyboard, read the screen, process, Window Handle, image and bitmap and global event listener.
 
+### go cli
+- [progressbar](https://github.com/schollz/progressbar) -- show progress bar in terminal 
+
+![stars](https://img.shields.io/github/stars/schollz/progressbar?style=flat) ![GitHub](https://img.shields.io/github/license/schollz/progressbar)
+
+## IoT (Internet of Things)
 
 ## basic tools
 > Some basic tool libraries, including some mainstream storage clients, middleware, etc.
+
+<!-- ### Job Scheduler -->
+<!-- Libraries for working with strings. -->
+<!-- Libraries for working with JSON. -->
+<!-- Libraries for generating and working with log files. -->
+<!-- Libraries for Machine Learning. -->
+<!-- Libraries that implement messaging systems. -->
+
+<!-- Libraries for working with various layers of the network. -->
+<!-- Libraries for working with human languages. -->
+
+<!-- Libraries for making HTTP requests. -->
+<!-- Libraries for using OpenGL in Go. -->
+<!-- Libraries for using OpenGL in Go. -->
+<!-- Official tooling for dependency and package management -->
+<!-- Query Language -->
+<!-- Libraries for scientific computing and data analyzing. -->
+<!-- Libraries that are used to help make your application more secure. -->
+
+<!-- Libraries and tools for binary serialization. -->
+
+<!-- Server Applications -->
+
+<!-- Libraries and tools for stream processing and reactive programming. -->
+
+<!-- - [go-streams](https://github.com/reugn/go-streams) -- provides a simple and concise DSL to build data pipelines -->
+
+Libraries and tools for templating and lexing
+
+
+Libraries for parsing and manipulating texts.
+
+
+[xj2go](https://github.com/stackerzzq/xj2go) - Convert xml or json to go struct.
+
+[tokenizer](https://github.com/bzick/tokenizer) - Parse any string, slice or infinite buffer to any tokens.
+
+
+<!-- Libraries for configuration parsing. -->
+
+<!-- https://github.com/avelino/awesome-go -->
