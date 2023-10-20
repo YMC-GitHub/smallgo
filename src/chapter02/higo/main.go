@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
+	"path"
 	"path/filepath"
+	"runtime"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -18,6 +20,21 @@ func main() {
 	hiye()
 }
 
+func getAppThisFilePath() (thisfilepath string) {
+	_, thisfilepath, _, _ = runtime.Caller(0)
+	// fmt.Printf("[info] app file location: %s\n", thisfilepath)
+	return thisfilepath
+}
+func getExeThisFilePath() (thisfilepath string) {
+	thisfilepath, err := filepath.Abs(os.Args[0])
+	// dir, err := os.Executable()
+	if err != nil {
+		fmt.Println(err)
+	}
+	// fmt.Printf("[info] app file location: %s\n", thisfilepath)
+	return thisfilepath
+}
+
 func getCurrentDir() (dir string) {
 	// get the current working directory
 
@@ -26,19 +43,33 @@ func getCurrentDir() (dir string) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Printf("[info] app run in dir: %s\n", dir)
+	// fmt.Printf("[info] app run in dir: %s\n", dir)
 	return dir
 }
 
 func getAppInDir() (dir string) {
+	dir = filepath.Dir(getAppThisFilePath())
 	// using the function
-	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Printf("[info] app in dir: %s\n", dir)
+	// dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	// dir, err := os.Executable()
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+	// fmt.Printf("[info] app in dir: %s\n", dir)
 	return dir
 }
+
+// func getAppInDirExeDiff() (dir string) {
+// 	// dir = filepath.Dir(getAppThisFilePath())
+// 	// using the function
+// 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+// 	// dir, err := os.Executable()
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+// 	// fmt.Printf("[info] app in dir: %s\n", dir)
+// 	return dir
+// }
 
 func appDoThing() {
 }
@@ -62,6 +93,36 @@ func appLoadIconFromPath(iconUri string) (iconResource fyne.Resource) {
 }
 
 func hiye() {
+	APP_THIS_FILE_PATH := getAppThisFilePath()
+	fmt.Printf("[info] app this file location: %s\n", APP_THIS_FILE_PATH)
+
+	APP_IN_DIR_EXE_DIFF := getExeThisFilePath()
+	fmt.Printf("[info] app this file location (exe diff): %s\n", APP_IN_DIR_EXE_DIFF)
+
+	APP_IN_DIR := getAppInDir()
+	fmt.Printf("[info] app in dir: %s\n", APP_IN_DIR)
+
+	APP_RUN_IN_DIR := getCurrentDir()
+	fmt.Printf("[info] app run in dir: %s\n", APP_RUN_IN_DIR)
+
+	// USE APP_RUN_IN_DIR AS APP_ROOT_DIR
+	APP_ROOT_DIR := APP_RUN_IN_DIR
+
+	// use APP_THIS_FILE_PATH/../../../../ as APP_ROOT_DIR
+	APP_ROOT_DIR = path.Join(APP_THIS_FILE_PATH, "../../../../")
+	fmt.Printf("[info] app root dir: %s\n", APP_ROOT_DIR)
+
+	APP_ICON_DIR := path.Join(APP_ROOT_DIR, "icons")
+	fmt.Printf("[info] app icon dir: %s\n", APP_ICON_DIR)
+
+	// cahce resource uri in no-static-length array
+	var resUri []string
+	resUri = append(resUri, path.Join(APP_ICON_DIR, "background.png"), "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png", path.Join(APP_ICON_DIR, "window.ico"))
+	resUri = append(resUri, "https://ghproxy.com/https://raw.githubusercontent.com/ymc-github/cdn/master/data/2022-11-28/favicon-32X32.png")
+
+	EN_REMOTE_ICON := false
+	EN_REMOTE_BG := true
+
 	a := app.New()
 	w := a.NewWindow("launcher")
 
@@ -69,18 +130,30 @@ func hiye() {
 	// iconUri = "D:\\code\\go\\smallgo.zero.com\\icons\\window.ico" //cause image: unknown format for icon ?
 
 	// load icon from local path and set icon to app
-	iconUri = "D:\\code\\go\\smallgo.zero.com\\icons\\background.png"
+	// iconUri = "D:\\code\\go\\smallgo.zero.com\\icons\\background.png"
+	// iconUri = path.Join(APP_ICON_DIR, "background.png")
+	// iconUri = path.Join(APP_ICON_DIR, "logo.ico")
+	// iconUri = path.Join(APP_ICON_DIR, "window.ico")
+	iconUri = resUri[2]
+	// iconUri = resUri[3]
+	fmt.Printf("[info] app icon uri: %s\n", iconUri)
+
 	icon := appLoadIconFromPath(iconUri)
 	if icon != nil {
 		w.SetIcon(icon)
 	}
 
-	// load icon from remote url with http  and set icon to app
-	// iconUri = "https://ghproxy.com/https://raw.githubusercontent.com/ymc-github/cdn/master/data/2022-11-28/favicon-32X32.png"
-	iconUri = "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png"
-	icon = appLoadIconFromUrl(iconUri)
-	if icon != nil {
-		w.SetIcon(icon)
+	// load remote icon switcher
+	if EN_REMOTE_ICON {
+		// load icon from remote url with http  and set icon to app
+		// iconUri = "https://ghproxy.com/https://raw.githubusercontent.com/ymc-github/cdn/master/data/2022-11-28/favicon-32X32.png"
+		// iconUri = "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png"
+		iconUri = resUri[1]
+		// iconUri = resUri[3]
+		icon = appLoadIconFromUrl(iconUri)
+		if icon != nil {
+			w.SetIcon(icon)
+		}
 	}
 
 	// set the window to fixed size
@@ -101,37 +174,31 @@ func hiye() {
 	// 	}),
 	// ))
 
-	getCurrentDir()
-	getAppInDir()
-	//
-	// ~/AppData\Local\Temp\go-build2802241422\b001\exe\main.exe
-	// [D:\code\go\smallgo.zero.com\release_win\fyne.exe]
-
-	path, err := os.Executable()
-	if err != nil {
-		fmt.Println(err)
-	}
-	dir := filepath.Dir(path)
-	fmt.Printf("[info] app in dir: %s\n", dir)
-
-	filename := "D:\\code\\go\\smallgo.zero.com\\icons\\background.png"
-	// filename = "G:\\code\\cdn\\data\\2022-11-28\\favicon-1024X1024.png"
+	imageUriBg := ""
+	// imageUriBg = "D:\\code\\go\\smallgo.zero.com\\icons\\background.png"
+	// imageUriBg = path.Join(APP_ICON_DIR, "background.png")
+	imageUriBg = resUri[1]
+	// imageUriBg = "G:\\code\\cdn\\data\\2022-11-28\\favicon-1024X1024.png"
 	// load image from file
-	image := canvas.NewImageFromFile(filename)
+	image := canvas.NewImageFromFile(imageUriBg)
 
-	// load image from remote url with http protocol
-	uri := "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png"
-	r, err := fyne.LoadResourceFromURLString(uri)
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		image = canvas.NewImageFromResource(r)
+	// load remote image as bg switcher
+	if EN_REMOTE_BG {
+		// load image from remote url with http protocol
+		// imageUriBg = "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png"
+		imageUriBg = resUri[1]
+		resource, err := fyne.LoadResourceFromURLString(imageUriBg)
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			image = canvas.NewImageFromResource(resource)
+		}
 	}
 
 	// todo:
 	// more: loading image from remote url to show in list (loop,random)
 
-	// image := canvas.NewImageFromURI(uri)
+	// image := canvas.NewImageFromURI(imageUriBg)
 	// image.FillMode = canvas.ImageFillOriginal
 
 	// set the image size to match its contaner size
