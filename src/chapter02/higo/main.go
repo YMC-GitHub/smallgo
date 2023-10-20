@@ -20,12 +20,12 @@ func main() {
 	hiye()
 }
 
-func getAppThisFilePath() (thisfilepath string) {
+func GetAppThisFilePath() (thisfilepath string) {
 	_, thisfilepath, _, _ = runtime.Caller(0)
 	// fmt.Printf("[info] app file location: %s\n", thisfilepath)
 	return thisfilepath
 }
-func getExeThisFilePath() (thisfilepath string) {
+func GetExeThisFilePath() (thisfilepath string) {
 	thisfilepath, err := filepath.Abs(os.Args[0])
 	// dir, err := os.Executable()
 	if err != nil {
@@ -35,7 +35,7 @@ func getExeThisFilePath() (thisfilepath string) {
 	return thisfilepath
 }
 
-func getCurrentDir() (dir string) {
+func GetCurrentDir() (dir string) {
 	// get the current working directory
 
 	// using the function
@@ -47,8 +47,8 @@ func getCurrentDir() (dir string) {
 	return dir
 }
 
-func getAppInDir() (dir string) {
-	dir = filepath.Dir(getAppThisFilePath())
+func GetAppInDir() (dir string) {
+	dir = filepath.Dir(GetAppThisFilePath())
 	// using the function
 	// dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	// dir, err := os.Executable()
@@ -71,38 +71,38 @@ func getAppInDir() (dir string) {
 // 	return dir
 // }
 
-func appDoThing() {
+func AppDoThing() {
 }
-func appLoadIconFromUrl(iconUri string) (iconResource fyne.Resource) {
+func AppLoadIconFromUrl(iconUri string) (iconResource fyne.Resource) {
 	// iconUri := "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png"
 	iconResource, err := fyne.LoadResourceFromURLString(iconUri)
 	if err != nil {
-		appDoThing()
+		AppDoThing()
 		fmt.Println(err)
 	}
 	return iconResource
 }
-func appLoadIconFromPath(iconUri string) (iconResource fyne.Resource) {
+func AppLoadIconFromPath(iconUri string) (iconResource fyne.Resource) {
 	// iconUri := "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png"
 	iconResource, err := fyne.LoadResourceFromPath(iconUri)
 	if err != nil {
-		appDoThing()
+		AppDoThing()
 		fmt.Println(err)
 	}
 	return iconResource
 }
 
 func hiye() {
-	APP_THIS_FILE_PATH := getAppThisFilePath()
+	APP_THIS_FILE_PATH := GetAppThisFilePath()
 	fmt.Printf("[info] app this file location: %s\n", APP_THIS_FILE_PATH)
 
-	APP_IN_DIR_EXE_DIFF := getExeThisFilePath()
+	APP_IN_DIR_EXE_DIFF := GetExeThisFilePath()
 	fmt.Printf("[info] app this file location (exe diff): %s\n", APP_IN_DIR_EXE_DIFF)
 
-	APP_IN_DIR := getAppInDir()
+	APP_IN_DIR := GetAppInDir()
 	fmt.Printf("[info] app in dir: %s\n", APP_IN_DIR)
 
-	APP_RUN_IN_DIR := getCurrentDir()
+	APP_RUN_IN_DIR := GetCurrentDir()
 	fmt.Printf("[info] app run in dir: %s\n", APP_RUN_IN_DIR)
 
 	// USE APP_RUN_IN_DIR AS APP_ROOT_DIR
@@ -138,7 +138,7 @@ func hiye() {
 	// iconUri = resUri[3]
 	fmt.Printf("[info] app icon uri: %s\n", iconUri)
 
-	icon := appLoadIconFromPath(iconUri)
+	icon := AppLoadIconFromPath(iconUri)
 	if icon != nil {
 		w.SetIcon(icon)
 	}
@@ -150,7 +150,7 @@ func hiye() {
 		// iconUri = "https://liblibai-online.vibrou.com/web/image/13cc10f392b0f42ab2057f8558f123ee58c8812c49d12c1606751aa0b5cdddfc.png"
 		iconUri = resUri[1]
 		// iconUri = resUri[3]
-		icon = appLoadIconFromUrl(iconUri)
+		icon = AppLoadIconFromUrl(iconUri)
 		if icon != nil {
 			w.SetIcon(icon)
 		}
