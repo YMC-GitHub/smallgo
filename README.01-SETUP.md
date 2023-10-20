@@ -590,6 +590,7 @@ go mod tidy
 - [x] run *.go files for dev
 ```powershell
 go run main.go
+go run chapter02
 ```
 
 - [x] build *.go files to *.exe files
@@ -906,5 +907,7 @@ del release_win/*.exe -recurse
 
 - [x] fix `package chapter01/higo is not in std `
 ```powershell
-
+# when: go build -o main chapter01/higo
+# solv: add your path (ps: ./src/chapter02/higo ) to go.work in project root dir   
+# why: 1. *.go files in your project root mod do not use any code from ./src/chapter02/higo
 ```
