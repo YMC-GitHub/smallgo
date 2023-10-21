@@ -7,6 +7,7 @@
 - [x] [Wails](https://github.com/wailsapp/wails) -- Build desktop applications using Go
 - [x] [Lorca](https://github.com/zserge/lorca) -- A very small library to build modern HTML5 desktop apps in Go.
 
+- [x] [upx](https://upx.github.io/) -- compressing your applications.
 
 note:
 - lorca,wails,go-webview2
