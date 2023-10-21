@@ -110,6 +110,8 @@ git add .vscode/README.md;git commit -m "docs(core): put vscode editor config fi
 ```bash
 git add README.01-SETUP.md ; git commit -m "docs(core): add readme to setup this";
 git add README.01-SETUP.md ; git commit -m "docs(core): put readme to setup this";
+git add README.01-SETUP-02.md ; git commit -m "docs(core): put readme to setup this";
+git add README.01-SETUP*.md ; git commit -m "docs(core): put readme to setup this";
 ```
 
 - [x] add docs about how to code before coding
@@ -244,6 +246,6 @@ git push origin main
 ```bash
 git add src/chapter02/higo/*.go; git commit -m "feat(core): use fyne to make higo gui";
 git add src/chapter02/higo/readme.md; git commit -m "docs(core): use fyne to make higo gui";
-
 git add go.mod go.sum go.work.sum;git commit -m "build(core): put mod and workspace";
+git add src/chapter02/higo/*.go; git commit -m "feat(core): export some func";
 ```
